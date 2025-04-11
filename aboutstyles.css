@@ -1,0 +1,180 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #ff6f40;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.about-header {
+    background: linear-gradient(to right, #fffcf2, #fcdadd);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.about-header h2 {
+    font-size: 2.5em;
+}
+
+.about-header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.mission-vision {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.card h3 {
+    font-size: 1.8em;
+    color: #ff6f40;
+}
+
+.card p {
+    color: #555;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #6f2c91; /* Example Color */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    flex: 1;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    color: #6f2c91; /* Example Color */
+    position: relative;
+}
+
+.card h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #ffcc00; /* Example Color */
+    margin: 10px 0;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.footer {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.company-info {
+    width: 25%;
+}
+
+.social-media a,
+.app-links a {
+    display: block;
+    margin: 5px 0;
+    color: orange;
+}
+
+.quick-links,
+.our-products,
+.reach-us {
+    width: 20%;
+}
+
+h5, h6 {
+    color: orange;
+    font-size: 24px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover {
+    color: orange;
+}
+
+.end {
+    background-color: white; /* Dark background color */
+    color: black; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding for the footer */
+    position: relative; /* Position relative for layout */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.end p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Font size for the footer text */
+}

@@ -1,0 +1,662 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Times New Roman', Times, serif
+}
+/* Navbar Styles */
+.navbar {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center items vertically */
+    color: black;
+    padding: 15px 30px; /* Padding for the navbar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative; /* Position relative for pseudo-elements */
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px; /* Underline effect */
+    background: #FFD700; /* Gold color for underline */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.navbar:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
+.logo {
+    font-size: 28px; /* Logo font size */
+    color: rgb(0, 0, 0); /* Logo text color */
+    font-weight: bold; /* Bold font for logo */
+    letter-spacing: 1px; /* Spacing between letters */
+}
+
+.nav-links {
+    list-style: none; /* Remove default list styling */
+    display: flex; /* Use flexbox for nav links */
+}
+
+.nav-links li {
+    margin: 0 20px; /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Link text color */
+    font-size: 18px; /* Font size for links */
+    padding: 10px 15px; /* Padding for links */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width for links */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Space between links */
+        width: 100%; /* Full width for each link */
+    }
+
+    .nav-links a {
+        padding: 10px; /* Padding for links */
+        display: block; /* Make links block elements */
+        width: 100%; /* Full width for links */
+        text-align: center; /* Center text */
+    }
+}
+
+
+.login-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.login-form {
+    background-color: white;
+    padding: 30px; /* Increased padding for a spacious feel */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Use a percentage for width */
+    max-width: 400px; /* Set a maximum width */
+    position: relative; /* For positioning the close button */
+}
+
+.login-form h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #333; /* Darker color for the heading */
+    font-size: 24px; /* Increased font size for the heading */
+}
+
+.login-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555; /* Slightly lighter color for labels */
+    font-weight: bold; /* Bold labels for better visibility */
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Rounded corners for input fields */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.login-form input:focus {
+    border-color: orange; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5); /* Add a subtle glow effect */
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: orange;
+    border: none;
+    color: white;
+    border-radius: 6px; /* Rounded corners for the button */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Add transition for hover effect */
+}
+
+.login-form button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa; /* Color for the close button */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.close:hover {
+    color: #ff0000; /* Change color on hover */
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Smooth transition */
+    width: 100%; /* Adjust based on the number of slides */
+}
+
+.slide {
+    width: 100%; /* Each slide takes full width */
+    height: 100%; /* Each slide takes full height */
+    display: none;
+}
+
+.slide img {
+    width: 100%; /* Make images responsive */
+    height: 100%; /* Make images responsive */
+    object-fit: cover; /* Cover the entire area without distortion */
+}
+
+.fade {
+    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+.fade.active {
+    opacity: 1; /* Show active slide */
+}
+
+/* Navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 165, 0, 0.7); /* Orange on hover */
+}
+
+.prev {
+    left: 10px; /* Position left */
+}
+
+.next {
+    right: 10px; /* Position right */
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .login-form {
+        padding: 15px; /* Adjust padding for smaller screens */
+        width: 90%; /* Full width on small screens */
+    }
+
+    .login-form h2 {
+        font-size: 20px; /* Smaller heading on small screens */
+    }
+
+    .login-form input {
+        padding: 10px; /* Adjust input padding */
+    }
+
+    .login-form button {
+        padding: 10px; /* Adjust button padding */
+    }
+}
+.bhandara-section {
+    background: linear-gradient(135deg, #ffcc00, #ff9900); /* Gradient background */
+    padding: 40px; /* Padding for the section */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center text */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+.bhandara-section h2 {
+    margin: 0 0 20px; /* Margin for the title */
+    font-size: 48px; /* Font size for the title */
+    font-weight: bold;
+    font-style: italic;
+    color: #fff; /* White color for the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.bhandara-section button {
+    padding: 15px 30px; /* Padding for the button */
+    background-color: white; /* White background for the button */
+    color: orange; /* Orange text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 28px; /* Font size for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transition for hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for button */
+}
+
+.bhandara-section button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+    color: black; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+.donor-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.donor-form {
+    background-color: white;
+    padding: 30px; /* Increased padding for a spacious feel */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Use a percentage for width */
+    max-width: 400px; /* Set a maximum width */
+    position: relative; /* For positioning the close button */
+}
+
+.donor-form h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #333; /* Darker color for the heading */
+    font-size: 24px; /* Increased font size for the heading */
+}
+
+.donor-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555; /* Slightly lighter color for labels */
+    font-weight: bold; /* Bold labels for better visibility */
+}
+
+.donor-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Rounded corners for input fields */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.donor-form input:focus {
+    border-color: orange; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5); /* Add a subtle glow effect */
+}
+
+.donor-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: orange;
+    border: none;
+    color: white;
+    border-radius: 6px; /* Rounded corners for the button */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Add transition for hover effect */
+}
+
+.donor-form button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa; /* Color for the close button */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.close:hover {
+    color: #ff0000; /* Change color on hover */
+}
+
+.new-info-section {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 40px; /* Padding for the section */
+    background-color: #f9f9f9; /* Light background color */
+    margin: 0 auto; /* Center the section on the page */
+    border-radius: 10px; /* Rounded corners for the section */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transform: translateY(20px); /* Start slightly lower */
+    animation: fadeInUp 0.8s forwards; /* Animation */
+}
+
+.new-image-container {
+    flex: 1; /* Allow the image container to grow */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.new-image-container img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for the image */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.new-image-container img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+.new-text-container {
+    flex: 2; /* Allow the text container to take more space */
+}
+
+.new-text-container h2 {
+    margin-bottom: 15px; /* Space below the heading */
+    font-size: 42px; /* Font size for the heading */
+    color: orange; /* Dark color for the heading */
+    font-weight: bold; /* Bold font for emphasis */
+    padding: 0 20px;
+    align-items: center;
+    font-style: italic;
+}
+
+.new-text-container p {
+    font-size: 18px; /* Font size for the paragraph */
+    line-height: 1.6; /* Line height for better readability */
+    color: #555; /* Slightly darker color for the text */
+    margin: 0; /* Remove default margin */
+    padding: 0 20px; /* Add horizontal padding for better spacing */
+}
+
+.new-info-section-reversed {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 40px; /* Padding for the section */
+    margin: 0 auto; /* Center the section on the page */
+    border-radius: 10px; /* Rounded corners for the section */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.new-image-container {
+    flex: 1; /* Allow the image container to grow */
+    margin-left: 20px; /* Space between text and image */
+}
+
+.new-image-container img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.new-image-container img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+.new-text-container {
+    flex: 2; /* Allow the text container to take more space */
+}
+
+.new-text-container h2 {
+    margin-bottom: 15px; /* Space below the heading */
+    font-size: 42px; /* Font size for the heading */
+    color: orange; /* Dark color for the heading */
+    font-weight: bold; /* Bold font for emphasis */
+    font-style: italic;
+}
+
+.new-text-container p {
+    font-size: 18px; /* Font size for the paragraph */
+    line-height: 1.6; /* Line height for better readability */
+    color: #555; /* Slightly darker color for the text */
+    margin: 0; /* Remove default margin */
+    padding: 0 20px; /* Add horizontal padding for better spacing */
+}
+
+.join-us-section {
+    background-color: #f9f9f9; /* Light background color */
+    margin: 0 auto; /* Center the section on the page */
+    border-radius: 10px; /* Rounded corners for the section */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transform: translateY(20px); /* Start slightly lower */
+    animation: fadeInUp 0.8s forwards; /* Animation */
+    padding: 40px; /* Padding for the section */
+    text-align: center; /* Center the text */
+    border-radius: 10px; /* Rounded corners for the section */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+.join-us-section h2 {
+    font-size: 28px; /* Font size for the heading */
+    color: orange; /* Dark color for the heading */
+    margin-bottom: 15px; /* Space below the heading */
+    font-style: italic;
+}
+
+.join-us-section p {
+    font-size: 18px; /* Font size for the paragraph */
+    line-height: 1.6; /* Line height for better readability */
+    color: #555; /* Slightly darker color for the text */
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+.join-us-section button {
+    padding: 15px 30px; /* Padding for the button */
+    background-color: orange; /* Orange background for the button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Font size for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
+}
+
+.join-us-section button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.volunteer-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better focus */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.volunteer-form {
+    background-color: white;
+    padding: 40px; /* Increased padding for a spacious feel */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for more depth */
+    width: 90%; /* Use a percentage for width */
+    max-width: 450px; /* Set a maximum width */
+    position: relative; /* For positioning the close button */
+}
+
+.volunteer-form h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #333; /* Darker color for the heading */
+    font-size: 26px; /* Increased font size for the heading */
+    font-weight: bold; /* Bold font for emphasis */
+}
+
+.volunteer-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555; /* Slightly lighter color for labels */
+    font-weight: bold; /* Bold labels for better visibility */
+}
+
+.volunteer-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Rounded corners for input fields */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.volunteer-form input:focus {
+    border-color: orange; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5); /* Add a subtle glow effect */
+}
+
+.volunteer-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: orange; /* Orange background for the button */
+    border: none; /* No border */
+    color: white; /* White text color */
+    border-radius: 6px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 18px; /* Font size for the button */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
+}
+
+.volunteer-form button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px; /* Increased size for the close button */
+    position: absolute;
+    top: 15px; /* Adjusted position */
+    right: 15px; /* Adjusted position */
+    color: #aaa; /* Color for the close button */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.close:hover {
+    color: #ff0000; /* Change color on hover */
+}
+
+.footer {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.company-info {
+    width: 25%;
+}
+
+.social-media a,
+.app-links a {
+    display: block;
+    margin: 5px 0;
+    color: orange;
+}
+
+.quick-links,
+.our-products,
+.reach-us {
+    width: 20%;
+}
+
+h1, h2 {
+    color: orange;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover {
+    color: orange;
+}
+
+.end {
+    background-color: white; /* Dark background color */
+    color: black; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding for the footer */
+    position: relative; /* Position relative for layout */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.end p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Font size for the footer text */
+    color: orange;
+}

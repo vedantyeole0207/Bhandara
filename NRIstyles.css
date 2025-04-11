@@ -1,0 +1,156 @@
+.image-container {
+    width: 1490px; /* Set the desired width */
+    height: 364px; /* Set the desired height */
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* Positioning context for absolute children */
+}
+
+.image-container img {
+    width: 100%; /* Make the image take the full width of the container */
+    height: 100%; /* Make the image take the full height of the container */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Center the image vertically */
+    left: 50%; /* Center the image horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin: 104px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center ;
+}
+h1 {
+    color: #7D2E2F; /* Tomato color */
+}
+.plan-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+.plan-card h2 {
+    color: #5e5e5e;
+}
+.plan-card p {
+    color: #777;
+}
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7D2E2F;
+}
+
+@media (max-width: 768px) {
+    .plan-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+.nri-services {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.nri-services h1 {
+    font-size: 55px;
+    color: #4A90E2; /* Blue color */
+    margin: 10px 0;
+}
+
+.nri-services .underline {
+    border: 0;
+    height: 2px;
+    background-color: #E95E25; /* Orange color */
+    width: 50px;
+    margin: 10px auto;
+}
+
+.nri-services p {
+    font-size: 24px;
+  color: #7F8C8D;
+  max-width: 654.6px;
+  margin: 0px auto;
+}
+
+
+.footer {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.company-info {
+    width: 25%;
+}
+
+.social-media a,
+.app-links a {
+    display: block;
+    margin: 5px 0;
+    color: #7D2E2F;
+}
+
+.quick-links,
+.our-products,
+.reach-us {
+    width: 20%;
+}
+
+h3,h4{
+    color: #7D2E2F;
+    font-size: 24px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover {
+    color: #7D2E2F;
+}
+
+.end {
+    background-color: white; /* Dark background color */
+    color: black; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding for the footer */
+    position: relative; /* Position relative for layout */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.end p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Font size for the footer text */
+    color: #7D2E2F;
+}

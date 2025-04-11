@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Bar with Login Popup and Click Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="blogo.webp" alt="Bhandara Logo" loading="eager" decoding="async" width="150"
+                height="50"></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="NRI.html">NRI Portal</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="login-popup" id="loginPopup">
+        <form action="login.php" method="post" class="login-form">
+            <span class="close" id="closePopup">&times;</span>
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="image-slider">
+        <div class="slides">
+            <div class="slide fade">
+                <img src="baner1.jpg" alt="Image 1">
+            </div>
+            <div class="slide fade">
+                <img src="karwao.webp" alt="Image 2">
+            </div>
+            <div class="slide fade">
+                <img src="NRIPORTAL.webp" alt="Image 3">
+            </div>
+        </div>
+        <button class="prev" id="prevBtn">&#10094;</button>
+        <button class="next" id="nextBtn">&#10095;</button>
+    </div>
+    <div class="bhandara-section">
+        <h2>Bhandara Karwao</h2>
+        <button id="bookNowBtn">Book Now</button>
+    </div>
+    <div class="donor-popup" id="donorPopup">
+        <form class="donor-form">
+            <span class="close" id="closeDonorPopup">&times;</span>
+            <h2>Donor Details</h2>
+            <label for="donorName">Name:</label>
+            <input type="text" id="donorName" name="donorName" required>
+            <label for="donorEmail">Email:</label>
+            <input type="email" id="donorEmail" name="donorEmail" required>
+            <label for="donationAmount">Donation Amount:</label>
+            <input type="number" id="donationAmount" name="donationAmount" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="new-info-section">
+        <div class="new-image-container">
+            <img src="SQUARE (1).webp" alt="Descriptive Alt Text">
+        </div>
+        <div class="new-text-container">
+            <h2>Serving Humanity Through Food</h2>
+            <p>
+                Bhandara is not just a meal; it's a celebration of community and generosity.
+                It brings people together, fostering a spirit of sharing and compassion.
+                Whether it's a festival, a wedding, or a charitable event, Bhandara serves as a reminder of the
+                importance of giving back to society.
+                Join us in this beautiful tradition and experience the joy of serving others.
+            </p>
+        </div>
+    </div>
+
+    <div class="new-info-section-reversed">
+        <div class="new-text-container">
+            <h2>Experience the Spirit of Bhandara</h2>
+            <p>
+                Bhandara is a beautiful tradition that embodies the essence of community and togetherness.
+                It is a time when people come together to share food, laughter, and love.
+                This selfless act of serving others not only nourishes the body but also uplifts the spirit.
+                Join us in celebrating this wonderful custom and be a part of something greater.
+            </p>
+        </div>
+        <div class="new-image-container">
+            <img src="poori-sabji-3.webp" alt="Descriptive Alt Text">
+        </div>
+    </div>
+
+    <div class="join-us-section">
+        <h2>Join Us</h2>
+
+        <p>
+            Be a part of our mission to spread joy and compassion through the tradition of Bhandara.
+            By volunteering, you can help us serve food to those in need and make a positive impact in the community.
+            Your time and effort can bring smiles to many faces. Join us in this noble cause and experience the joy of
+            giving.
+        </p>
+        <button id="volunteerBtn">Become a Volunteer</button>
+    </div>
+    <div class="volunteer-popup" id="volunteerPopup">
+        <form class="volunteer-form">
+            <span class="close" id="closeVolunteerPopup">&times;</span>
+            <h2>Volunteer Details</h2>
+            <label for="volunteerName">Name:</label>
+            <input type="text" id="volunteerName" name="volunteerName" required>
+            <label for="volunteerEmail">Email:</label>
+            <input type="email" id="volunteerEmail" name="volunteerEmail" required>
+            <label for="volunteerPhone">Phone:</label>
+            <input type="tel" id="volunteerPhone" name="volunteerPhone" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="company-info">
+                <h1>Bhandara</h1>
+                <p>India's 1st Spiritual Food Website</p>
+                <div class="social-media">
+                    <a href="#"><i class="fa fa-facebook-f" style="font-size:36px"></i></a>
+                    <a href="https://www.instagram.com/vedantop._/"><i class="fa fa-instagram"
+                            style="font-size:36px"></i></a>
+                    <a href="https://www.linkedin.com/in/vedantsyeole/"><i class="fa fa-linkedin"
+                            style="font-size:36px"></i></a>
+                </div>
+            </div>
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+            <div class="our-products">
+                <h2>Our Products</h2>
+                <ul>
+                    <li><a href="#">Bandara karwao</a></li>
+                </ul>
+            </div>
+            <div class="reach-us">
+                <h2>Reach Us</h2>
+
+                <p>BHANDARA KARWAO PVT LTD</p>
+                <p>Registered Head Office:</p>
+                <p>Pillai Boys Hostel,Khanda Colony, New Panvel,410206</p>
+                <p>Corporate Office:</p>
+                <p>C-6/11,Road No.2,Sector 18,New Panvel,410206</p>
+                <p>+91 9403983051</p>
+                <p>vedantyeole045@gmail.com</p>
+            </div>
+        </div>
+        <div class="end">
+            <p>&copy; 2023 Bhandara Organization. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Your JavaScript code here
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
